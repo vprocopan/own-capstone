@@ -1,4 +1,7 @@
 pipeline {
+    environment {
+        dockerhubCredentials = 'dockerhubCredentials'
+    }
     agent any
 
     stages {
