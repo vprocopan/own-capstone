@@ -8,7 +8,7 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Building'
-                sh '''echo test'''
+                sh '''docker run --name capstone -d -p 80:80 vprocopan/capstone-vprocopan'''
             }
         }
         stage('Test') {
