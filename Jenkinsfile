@@ -9,7 +9,10 @@ pipeline {
             steps {
                 echo 'Building'
                 sh 'docker build -t vprocopan/capstone-vprocopan .'
-                sh 'docker push vprocopan/capstone-vprocopan'
+                docker.withRegistry( '', dockerhubCredentials ) {
+                
+                    sh 'docker push vprocopan/capstone-vprocopan'
+                    }
                 sh '''docker run --name capstone -d -p 80:80 vprocopan/capstone-vprocopan'''
                 
             }
