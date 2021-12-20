@@ -7,13 +7,16 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                echo 'Building'
+                script{
+                    echo 'Building'
                 sh 'docker build -t vprocopan/capstone-vprocopan .'
                 docker.withRegistry( '', dockerhubCredentials ) {
                 
                     sh 'docker push vprocopan/capstone-vprocopan'
                     }
                 sh '''docker run --name capstone -d -p 80:80 vprocopan/capstone-vprocopan'''
+                
+                }
                 
             }
         }
