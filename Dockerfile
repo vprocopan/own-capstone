@@ -1,7 +1,8 @@
 FROM ubuntu:18.04
 
-RUN apt-get update
-RUN apt-get install -y nginx
+RUN apt-get update && apt-get install --no-install-recommends -y nginx=1.21.4 \
+ && apt-get clean \
+ && rm -rf /var/lib/apt/lists/*
 
 COPY nginx.conf /etc/nginx/nginx.conf
 COPY ./www /www
