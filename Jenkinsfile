@@ -38,7 +38,8 @@ pipeline {
             steps {
                 script {
                     sh "echo 'Cleaning Docker up'"
-                    sh "docker system prune"
+                    sh "docker rm -f capstone"
+                    sh "echo > hadolint_lint.txt"
                 }
             }
         }
