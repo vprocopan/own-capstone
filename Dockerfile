@@ -1,6 +1,6 @@
 FROM ubuntu:18.04
 
-RUN apt-get update && apt-get install --no-install-recommends -y nginx=1.17 \
+RUN apt-get update && apt-get install --no-install-recommends -y nginx \
  && apt-get clean \
  && rm -rf /var/lib/apt/lists/*
 
