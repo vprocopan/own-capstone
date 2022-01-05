@@ -42,7 +42,7 @@ pipeline {
             steps {
                 dit('k8s') 
                 {
-                    withAWS(credentials: 'aws-credentials', region 'us-west-2') 
+                    withAWS(credentials: 'aws-credentials', region: 'us-west-2') 
                      {
                          sh "aws eks "
                      }
