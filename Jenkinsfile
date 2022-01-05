@@ -40,7 +40,7 @@ pipeline {
         }
         stage('Deploy to EKS') {
             steps {
-                dit('k8s') 
+                dir('k8s') 
                 {
                     withAWS(credentials: 'aws-credentials', region: 'us-west-2') 
                      {
