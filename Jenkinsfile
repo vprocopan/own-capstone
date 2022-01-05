@@ -38,8 +38,15 @@ pipeline {
                 echo 'Testing..'
             }
         }
-        stage('Deploy') {
+        stage('Deploy to EKS') {
             steps {
+                dit('k8s') 
+                {
+                    withAWS(credentials: 'aws-credentials', region 'us-west-2') 
+                     {
+                         sh "aws eks "
+                     }
+                }
                 echo 'Deploying....'
             }
         }
