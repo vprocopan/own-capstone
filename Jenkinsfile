@@ -45,6 +45,7 @@ pipeline {
                     withAWS(credentials: 'aws-credentials', region: 'us-west-2') 
                      {
                          sh "aws eks --region us-west-2 update-kubeconfig --name capstone"
+                         sh "kubectl run project --image=vprocopan/capstone-vprocopan --port=80"
                      }
                 }
                 echo 'Deploying....'
