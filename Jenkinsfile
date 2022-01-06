@@ -44,7 +44,7 @@ pipeline {
                 {
                     withAWS(credentials: 'aws-credentials', region: 'us-west-2') 
                      {
-                         sh "aws eks --region us-west-2 update-kubeconfig --name capstone"
+                         sh "aws eks  update-kubeconfig --name capstone --region us-west-2 --role-arn arn:aws:iam::148065966837:role/vprocopan"
                          sh "kubectl run project --image=vprocopan/capstone-vprocopan --port=80"
                      }
                 }
