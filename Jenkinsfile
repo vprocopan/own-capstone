@@ -60,10 +60,13 @@ pipeline {
         }
     }
     post {
-        always { 
-            sh "echo 'Cleaning Docker up'"
-            sh "docker rm -f capstone"
-            sh "echo > hadolint_lint.txt"
+        always {
+            script {
+                sh "echo 'Cleaning Docker up'"
+                sh "docker rm -f capstone"
+                sh "echo > hadolint_lint.txt"
+            } 
+            
         }
     }
 }
