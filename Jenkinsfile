@@ -54,11 +54,16 @@ pipeline {
         stage("Cleaning Docker up") {
             steps {
                 script {
-                    sh "echo 'Cleaning Docker up'"
-                    sh "docker rm -f capstone"
-                    sh "echo > hadolint_lint.txt"
+                    
                 }
             }
+        }
+    }
+    post {
+        always { 
+            sh "echo 'Cleaning Docker up'"
+            sh "docker rm -f capstone"
+            sh "echo > hadolint_lint.txt"
         }
     }
 }
