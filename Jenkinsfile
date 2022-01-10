@@ -51,13 +51,13 @@ pipeline {
                 echo 'Deploying....'
             }
         }
-        stage("Cleaning Docker up") {
-            steps {
-                script {
-                    
-                }
-            }
-        }
+        //stage("Cleaning Docker up") {
+        //    steps {
+        //        script {
+        //            
+        //        }
+        //    }
+        // }
     }
     post {
         always {
